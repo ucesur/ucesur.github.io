@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ucesur — Projeler</title>
+  <meta name="description" content="ucesur'un yayında olan projeleri ve uygulamaları." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #fbf4ec;
+      --card: #fffcf8;
+      --ink: #2c211d;
+      --ink-soft: #6b564f;
+      --line: #ecdcc8;
+      --strawberry: #e4577b;
+      --caramel: #f2a63d;
+      --blue: #4f7bd6;
+      --radius: 24px;
+      --font-display: "Baloo 2", system-ui, sans-serif;
+      --font-body: "Nunito", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: var(--font-body);
+      color: var(--ink);
+      background-color: var(--bg);
+      background-image:
+        radial-gradient(circle at 8% 6%, rgba(242,166,61,.12), transparent 40%),
+        radial-gradient(circle at 92% 12%, rgba(228,87,123,.12), transparent 40%);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 72px 24px 56px; }
+
+    header.intro { margin-bottom: 40px; }
+    .avatar {
+      width: 64px; height: 64px; border-radius: 20px;
+      background: linear-gradient(150deg, var(--strawberry), var(--caramel));
+      display: grid; place-items: center; font-size: 32px;
+      box-shadow: inset 0 -5px 0 rgba(0,0,0,.08); margin-bottom: 20px;
+    }
+    h1 {
+      font-family: var(--font-display); font-weight: 800;
+      font-size: clamp(2.2rem, 6vw, 3.2rem); letter-spacing: -.5px;
+      margin: 0 0 8px;
+    }
+    .intro p { color: var(--ink-soft); font-size: 1.15rem; max-width: 48ch; margin: 0; }
+
+    .section-label {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: .95rem; color: var(--ink-soft);
+      margin: 8px 0 16px;
+    }
+
+    .projects { display: grid; gap: 16px; }
+
+    a.project {
+      display: flex; align-items: center; gap: 20px;
+      text-decoration: none; color: inherit;
+      background: var(--card);
+      border: 2px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px 24px;
+      transition: transform .14s ease, box-shadow .14s ease, border-color .14s ease;
+    }
+    a.project:hover {
+      transform: translateY(-3px);
+      border-color: var(--strawberry);
+      box-shadow: 0 14px 0 rgba(44,33,29,.06);
+    }
+    a.project .icon {
+      flex: 0 0 auto;
+      width: 58px; height: 58px; border-radius: 16px;
+      display: grid; place-items: center; font-size: 30px;
+      background: var(--bg); border: 2px solid var(--line);
+    }
+    a.project .body { flex: 1 1 auto; min-width: 0; }
+    a.project h2 {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: 1.3rem; margin: 0 0 2px;
+    }
+    a.project .desc { display: block; color: var(--ink-soft); font-size: .98rem; margin: 0 0 4px; }
+    a.project .repo {
+      display: block;
+      font-family: var(--font-display); font-size: .8rem;
+      color: var(--blue); font-weight: 600; word-break: break-word;
+    }
+    a.project .arrow {
+      flex: 0 0 auto; font-size: 1.6rem; color: var(--strawberry);
+      transition: transform .14s ease;
+    }
+    a.project:hover .arrow { transform: translateX(4px); }
+
+    /* subtle style variants per accent */
+    a.project.p2:hover { border-color: var(--caramel); }
+    a.project.p2 .arrow { color: var(--caramel); }
+    a.project.p3:hover { border-color: var(--blue); }
+    a.project.p3 .arrow { color: var(--blue); }
+
+    footer {
+      margin-top: 44px; padding-top: 24px;
+      border-top: 2px solid var(--line);
+      color: var(--ink-soft); font-weight: 600;
+      display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between;
+    }
+    footer a { color: var(--ink-soft); text-decoration: none; font-weight: 700; }
+    footer a:hover { color: var(--strawberry); }
+
+    :focus-visible { outline: 3px solid var(--caramel); outline-offset: 3px; border-radius: 10px; }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+    @media (max-width: 480px) {
+      .wrap { padding: 48px 18px 40px; }
+      a.project { gap: 14px; padding: 18px; }
+      a.project .icon { width: 50px; height: 50px; font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="section-label">Applications</p>
+    <nav class="projects" aria-label="Applications">
+
+      <a class="project p1" href="https://ucesur.github.io/pastrypipeline_page/">
+        <span class="icon" aria-hidden="true">🧁</span>
+        <span class="body">
+          <h2>Pastry Pipeline</h2>
+        </span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+    </nav>
+
+    <footer>
+      <span>© <span id="year">2026</span> ucesur</span>
+    </footer>
+  </div>
+
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
